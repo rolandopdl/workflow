@@ -1,46 +1,84 @@
 // _base.scss
 // ==============
+
+/// Base path for assets (fonts, images...),
+/// should not include trailing slash
+/// @access public
+/// @type String
+$asset-base-path: '../development' !default;
+
+/// Asset URL builder
+/// @access private
+/// @param {String} $type - Asset type, matching folder name
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the asset
+@function asset($type, $file) {
+  @return url($asset-base-path + '/' + $type + '/' + $file);
+}
+
+/// Image asset helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the image
+/// @require {function} asset
+@function image($file) {
+  @return asset('images', $file);
+}
+
+/// Font asset helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the font
+/// @require {function} asset
+@function font($file) {
+  @return asset('fonts', $file);
+}
+
+html {
+	font-size: 62.5%;
+	box-sizing: border-box;
+}
+
 body {
-  background: lighten($beige, 10%);
+  background: $blueishGray;
   font-family: $bodyFont;
-  font-size: 1.1em;
 }
-
-#content {
-  color: $pink;
-  font-size: 2em;
-}
-
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto;
-  position: relative;
-}
+//
+// #content {
+//   color: $darkGray;
+//   font-size: 2rem;
+// }
+//
+// .container {
+//   width: 90%;
+//   max-width: 1000px;
+//   margin: 0 auto;
+//   position: relative;
+// }
 
 #{headings()} {
   font-family: $headFont;
-  font-size: 3em;
+  font-size: 3rem;
 }
 
 h1 {
-  font-size: 3.5em;
+  font-size: 3.5rem;
   margin-bottom: 10px;
   color: $green;
 
   @media (max-width: 700px) {
-    font-size: 2.2em;
+    font-size: 2.2rem;
   }
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 3rem;
   color: $purple;
 }
 
 p {
-  font-size: 1.3em;
-  line-height: 1.5em;
+  font-size: 1.6rem;
+  line-height: 2rem;
     color: $purple;
   margin-bottom: 20px;
     margin-top: 15px;
@@ -53,3 +91,62 @@ section {
 .artgroup {
     @include clearfix;
 } //artgroup
+
+.intro {
+    position: relative;
+    background-image: image('background.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center top;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    padding-top: 15.6rem;
+    overflow: hidden;
+    height: 100vh;
+
+
+.intro-content {
+    position: relative;
+    z-index: 600;
+}
+h1 {
+    font-family: "domine-bold", serif;
+    font-size: 5.3rem;
+    line-height: 1.267;
+    color: #ffffff;
+    padding: 0 12%;
+    text-shadow: 2px 2px 2px #000000;
+		span {
+		    width: 230px;
+		    display: inline-block;
+		    text-align: center;
+		}
+
+}
+
+h2 {
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    color: #FFFFFF;
+    font-weight: 300;
+    font-family: "roboto-regular";
+    margin-bottom: .6rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+
+.buttons {
+    margin: 8rem 0;
+		.button {
+	    border: 3px solid rgba(255, 255, 255, 0.6);
+	    color: white;
+	    margin: 0 .9rem;
+			&:hover, &:focus {
+		    border: 3px solid #f9da4f;
+		    color: crimson;
+		}
+}
+}
+}

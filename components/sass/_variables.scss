@@ -2,16 +2,31 @@
 // =================
 @import "http://fonts.googleapis.com/css?family=Patua+One|Inika";
 
+
+$lightBlue     : #ecf7fb;
+$darkBlue      : #0d2f48;
+$blueishGray   : #e8eef3;
+$lightGray     : #d8d8d8;
+$darkGray       : #001835;
+
+/* workflow original colors */
 $beige         : #E3C691;
 $darkGreenGold : #8D8862;
 $lightGreen    : #C0DC99;
 $green         : #507356;
-$lightBlue     : #97D5D9;
+$lightBlue     : #e8eef3;
+$darkBlue      : #0d2f48;
 $desatBlue     : #464B65;
 $purple        : #3E2B3D;
 $darkPurple    : #3A3248;
 $pink          : #CC8E94;
 $skin          : #B08B7B;
 
-$headFont : 'Patua One', sans-serif;
-$bodyFont : 'Inika', serif;
+
+
+
+// Font variables
+
+/* workflow original colors */
+$headFont : 'Roboto', sans-serif;
+$bodyFont : 'Open Sans', sans-serif;
